@@ -1,8 +1,5 @@
 import pandas as pd
-
-# -------------------------------
 # Step 1: Create Dataset
-# -------------------------------
 data = {
     "OrderID": [1,2,3,4,5,6,7,8],
     "Customer": ["A","B","C","A","D","B","E","A"],
@@ -16,9 +13,7 @@ data = {
 # Convert dictionary to DataFrame
 df = pd.DataFrame(data)
 
-# -------------------------------
 # Step 2: Data Understanding
-# -------------------------------
 print("First 5 Rows:")
 print(df.head())
 
@@ -28,9 +23,7 @@ df.info()
 print("\nStatistical Summary:")
 print(df.describe())
 
-# -------------------------------
 # Step 3: Basic Analysis
-# -------------------------------
 
 # Total Sales Calculation
 print("\nTotal Sales:", df["Sales"].sum())
@@ -39,9 +32,7 @@ print("\nTotal Sales:", df["Sales"].sum())
 print("\nHighest Sales Record:")
 print(df[df["Sales"] == df["Sales"].max()])
 
-# -------------------------------
 # Step 4: GroupBy Analysis
-# -------------------------------
 
 # Product-wise Sales
 print("\nProduct-wise Sales:")
@@ -55,9 +46,7 @@ print(df.groupby("Region")["Sales"].sum())
 print("\nTop Customers:")
 print(df.groupby("Customer")["Sales"].sum().sort_values(ascending=False))
 
-# -------------------------------
 # Step 5: Insights (Important for Resume)
-# -------------------------------
 
 # Insights (write these in README or comments):
 # 1. Laptop generates the highest revenue among all products.

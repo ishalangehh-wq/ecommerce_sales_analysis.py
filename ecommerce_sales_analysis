@@ -1,15 +1,66 @@
-Project: E-commerce Sales Analysis
+import pandas as pd
 
-Tools Used:
-- Python
-- Pandas
+# -------------------------------
+# Step 1: Create Dataset
+# -------------------------------
+data = {
+    "OrderID": [1,2,3,4,5,6,7,8],
+    "Customer": ["A","B","C","A","D","B","E","A"],
+    "Product": ["Laptop","Mouse","Keyboard","Laptop","Mouse","Keyboard","Laptop","Mouse"],
+    "Category": ["Electronics","Accessories","Accessories","Electronics","Accessories","Accessories","Electronics","Accessories"],
+    "Sales": [50000,500,1500,52000,550,1600,51000,600],
+    "Profit": [5000,50,200,6000,60,250,5500,70],
+    "Region": ["North","South","North","West","South","North","West","South"]
+}
 
-Key Analysis:
-- Total sales calculation
-- Product-wise and region-wise sales
-- Top customer identification
+# Convert dictionary to DataFrame
+df = pd.DataFrame(data)
 
-Insights:
-- Laptop generates highest revenue
-- North region contributes most sales
-- Customer A is top buyer
+# -------------------------------
+# Step 2: Data Understanding
+# -------------------------------
+print("First 5 Rows:")
+print(df.head())
+
+print("\nData Information:")
+df.info()
+
+print("\nStatistical Summary:")
+print(df.describe())
+
+# -------------------------------
+# Step 3: Basic Analysis
+# -------------------------------
+
+# Total Sales Calculation
+print("\nTotal Sales:", df["Sales"].sum())
+
+# Find the order with highest sales
+print("\nHighest Sales Record:")
+print(df[df["Sales"] == df["Sales"].max()])
+
+# -------------------------------
+# Step 4: GroupBy Analysis
+# -------------------------------
+
+# Product-wise Sales
+print("\nProduct-wise Sales:")
+print(df.groupby("Product")["Sales"].sum().sort_values(ascending=False))
+
+# Region-wise Sales
+print("\nRegion-wise Sales:")
+print(df.groupby("Region")["Sales"].sum())
+
+# Customer-wise Sales (Top Customers)
+print("\nTop Customers:")
+print(df.groupby("Customer")["Sales"].sum().sort_values(ascending=False))
+
+# -------------------------------
+# Step 5: Insights (Important for Resume)
+# -------------------------------
+
+# Insights (write these in README or comments):
+# 1. Laptop generates the highest revenue among all products.
+# 2. North region contributes the most to total sales.
+# 3. Customer A is the top buyer with multiple purchases.
+# 4. Accessories generate lower revenue compared to Electronics.

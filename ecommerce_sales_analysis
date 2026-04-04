@@ -45,11 +45,33 @@ print(df.groupby("Region")["Sales"].sum())
 # Customer-wise Sales (Top Customers)
 print("\nTop Customers:")
 print(df.groupby("Customer")["Sales"].sum().sort_values(ascending=False))
+import matplotlib.pyplot as plt
 
-# Step 5: Insights (Important for Resume)
+# Product-wise Sales Bar Chart
+product_sales = df.groupby("Product")["Sales"].sum()
+product_sales.plot(kind="bar")
+plt.title("Product-wise Sales")
+plt.xlabel("Product")
+plt.ylabel("Total Sales")
+plt.show()
 
-# Insights (write these in README or comments):
-# 1. Laptop generates the highest revenue among all products.
-# 2. North region contributes the most to total sales.
-# 3. Customer A is the top buyer with multiple purchases.
-# 4. Accessories generate lower revenue compared to Electronics.
+# Region-wise Sales Bar Chart
+region_sales = df.groupby("Region")["Sales"].sum()
+region_sales.plot(kind="bar")
+plt.title("Region-wise Sales")
+plt.xlabel("Region")
+plt.ylabel("Total Sales")
+plt.show()
+
+# Pie Chart
+product_sales.plot(kind="pie", autopct='%1.1f%%')
+plt.title("Sales Distribution by Product")
+plt.ylabel("")
+plt.show()
+
+# Line Chart
+df["Sales"].plot(kind="line")
+plt.title("Sales Trend")
+plt.xlabel("Index")
+plt.ylabel("Sales")
+plt.show()

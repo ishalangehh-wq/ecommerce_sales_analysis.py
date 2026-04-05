@@ -19,3 +19,15 @@ Insights:
 - Bar chart for region-wise sales
 - Pie chart for sales distribution
 - Line chart for sales trend
+### Product-wise Sales
+![Product Sales](product_sales.png)
+
+### Region-wise Sales
+![Region Sales](region_sales.png)
+
+### Sales Distribution
+![Sales Distribution](sales_distribution.png)
+
+### Sales Trend
+![Sales Trend](sales_trend.png)
+- 

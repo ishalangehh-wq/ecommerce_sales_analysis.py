@@ -1,77 +1,32 @@
-import pandas as pd
-# Step 1: Create Dataset
-data = {
-    "OrderID": [1,2,3,4,5,6,7,8],
-    "Customer": ["A","B","C","A","D","B","E","A"],
-    "Product": ["Laptop","Mouse","Keyboard","Laptop","Mouse","Keyboard","Laptop","Mouse"],
-    "Category": ["Electronics","Accessories","Accessories","Electronics","Accessories","Accessories","Electronics","Accessories"],
-    "Sales": [50000,500,1500,52000,550,1600,51000,600],
-    "Profit": [5000,50,200,6000,60,250,5500,70],
-    "Region": ["North","South","North","West","South","North","West","South"]
-}
-
-# Convert dictionary to DataFrame
-df = pd.DataFrame(data)
-
-# Step 2: Data Understanding
-print("First 5 Rows:")
-print(df.head())
-
-print("\nData Information:")
-df.info()
-
-print("\nStatistical Summary:")
-print(df.describe())
-
-# Step 3: Basic Analysis
-
-# Total Sales Calculation
-print("\nTotal Sales:", df["Sales"].sum())
-
-# Find the order with highest sales
-print("\nHighest Sales Record:")
-print(df[df["Sales"] == df["Sales"].max()])
-
-# Step 4: GroupBy Analysis
-
-# Product-wise Sales
-print("\nProduct-wise Sales:")
-print(df.groupby("Product")["Sales"].sum().sort_values(ascending=False))
-
 # Region-wise Sales
-print("\nRegion-wise Sales:")
-print(df.groupby("Region")["Sales"].sum())
-
-# Customer-wise Sales (Top Customers)
-print("\nTop Customers:")
-print(df.groupby("Customer")["Sales"].sum().sort_values(ascending=False))
-import matplotlib.pyplot as plt
-
-# Product-wise Sales Bar Chart
-product_sales = df.groupby("Product")["Sales"].sum()
-product_sales.plot(kind="bar")
-plt.title("Product-wise Sales")
-plt.xlabel("Product")
-plt.ylabel("Total Sales")
-plt.show()
-
-# Region-wise Sales Bar Chart
 region_sales = df.groupby("Region")["Sales"].sum()
 region_sales.plot(kind="bar")
 plt.title("Region-wise Sales")
 plt.xlabel("Region")
 plt.ylabel("Total Sales")
+plt.savefig("region_sales.png")
+plt.show()
+
+# Product-wise Sales
+product_sales = df.groupby("Product")["Sales"].sum()
+product_sales.plot(kind="bar")
+plt.title("Product-wise Sales")
+plt.xlabel("Product")
+plt.ylabel("Total Sales")
+plt.savefig("product_sales.png")
+plt.show()
+
+# Sales Trend
+df["Sales"].plot(kind="line")
+plt.title("Sales Trend")
+plt.xlabel("Index")
+plt.ylabel("Sales")
+plt.savefig("sales_trend.png")
 plt.show()
 
 # Pie Chart
 product_sales.plot(kind="pie", autopct='%1.1f%%')
 plt.title("Sales Distribution by Product")
 plt.ylabel("")
-plt.show()
-
-# Line Chart
-df["Sales"].plot(kind="line")
-plt.title("Sales Trend")
-plt.xlabel("Index")
-plt.ylabel("Sales")
+plt.savefig("sales_distribution.png")
 plt.show()

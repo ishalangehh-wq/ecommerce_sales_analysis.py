@@ -30,4 +30,24 @@ Insights:
 
 ### Sales Trend
 ![Sales Trend](sales_trend.png)
-- 
+
+ ## 🗄 SQL Analysis
+
+### 🔍 Queries Performed
+- Total sales calculation
+- Product-wise sales analysis
+- Region-wise sales analysis
+- Customer-wise analysis
+
+### 📊 Sample Output
+
+| Product   | Total Sales |
+|----------|------------|
+| Laptop   | 153000     |
+| Mouse    | 1650       |
+| Keyboard | 3100       |
+
+### 🧠 Insights
+- Laptop generates the highest revenue
+- North region contributes the most sales
+- Customer A is the top buyer

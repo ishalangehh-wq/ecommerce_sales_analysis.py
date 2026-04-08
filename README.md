@@ -51,3 +51,5 @@ Insights:
 - Laptop generates the highest revenue
 - North region contributes the most sales
 - Customer A is the top buyer
+
+🔗 Live Dashboard: https://public.tableau.com/authoring/EcommerceSalesDashboard_17756641955030/Dashboard1#1

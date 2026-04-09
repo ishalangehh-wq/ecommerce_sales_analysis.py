@@ -3,6 +3,8 @@ Project: E-commerce Sales Analysis
 Tools Used:
 - Python
 - Pandas
+- Matplotlib
+- Tableau
 
 Key Analysis:
 - Total sales calculation
